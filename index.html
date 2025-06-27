@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FB & IG 聊天紀錄視覺化</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container mt-4">
+        <header class="text-center mb-4">
+            <h1>FB & IG 聊天紀錄視覺化</h1>
+            <p class="lead">上傳您的 Messenger 或 Instagram 聊天紀錄 JSON 檔案，將其視覺化為互動式時間軸。</p>
+        </header>
+
+        <!-- File Upload Section -->
+        <div id="upload-container" class="mb-4">
+            <div id="drop-zone" class="border rounded p-5 text-center">
+                <p>將 `message_1.json` 檔案拖曳至此</p>
+                <p>或</p>
+                <input type="file" id="file-input" class="d-none">
+                <label for="file-input" class="btn btn-primary">選擇檔案</label>
+            </div>
+        </div>
+
+        <!-- Visualization Section -->
+        <div id="visualization-container" class="d-none">
+            <h2 id="chat-title" class="text-center"></h2>
+
+            <div id="controls" class="d-flex justify-content-center align-items-center my-3">
+                <div class="control-group">
+                    <span>日期間距</span>
+                    <button id="day-minus" class="btn btn-outline-secondary btn-lg" title="減少間距">-</button>
+                    <button id="day-plus" class="btn btn-outline-secondary btn-lg ms-1" title="增加間距">+</button>
+                </div>
+                <div class="control-group ms-4">
+                    <span>時間間距</span>
+                    <button id="time-minus" class="btn btn-outline-secondary btn-lg" title="縮小">-</button>
+                    <button id="time-plus" class="btn btn-outline-secondary btn-lg ms-1" title="放大">+</button>
+                </div>
+            </div>
+
+            <div id="legend" class="d-flex justify-content-center flex-wrap mb-3"></div>
+            <div id="timeline-chart" class="bg-light border rounded">
+                <!-- D3.js will render the SVG here -->
+            </div>
+             <div class="alert alert-info mt-3" role="alert">
+              提示：您可以使用滑鼠滾輪進行縮放，並拖曳來移動時間軸。點擊訊息圓圈可查看詳細內容。
+            </div>
+        </div>
+    </div>
+
+    <!-- NEW: Modal Structure -->
+    <div id="modal-overlay">
+        <div id="modal-content">
+            <!-- Detailed messages will be injected here by JavaScript -->
+        </div>
+    </div>
+
+    <!-- D3.js Library -->
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <!-- Custom JS -->
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,134 @@
+body {
+    background-color: #f8f9fa;
+}
+
+#drop-zone {
+    border-style: dashed !important;
+    border-width: 2px !important;
+    cursor: pointer;
+    transition: background-color 0.2s ease-in-out, border-color 0.2s ease-in-out;
+}
+
+#drop-zone.dragover {
+    background-color: #e9ecef;
+    border-color: #0d6efd !important;
+}
+
+#timeline-chart {
+    position: relative;
+    width: 100%;
+    overflow: hidden; /* Important for SVG panning */
+}
+
+/* D3 Timeline styles */
+.day-line {
+    stroke: #888;
+    stroke-width: 1;
+}
+
+.day-line-empty {
+    stroke: #ddd;
+}
+
+.day-label {
+    font-size: 12px;
+    fill: #777;
+    text-anchor: middle;
+    -webkit-user-select: none; /* Safari */
+    -ms-user-select: none; /* IE 10+ */
+    user-select: none;
+}
+
+/* MODIFIED: Added cursor pointer to the message group */
+.message-group {
+    cursor: pointer;
+}
+
+.message-circle {
+    stroke: #fff;
+    stroke-width: 1.5;
+}
+
+.message-text {
+    font-size: 12px;
+    fill: #333;
+    pointer-events: none;
+}
+
+.legend-item {
+    display: flex;
+    align-items: center;
+    margin-right: 15px;
+    margin-bottom: 5px;
+}
+
+.legend-color {
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    margin-right: 5px;
+}
+
+.gridlines .tick line {
+    stroke: #bbb;
+    stroke-opacity: 0.7;
+}
+
+/* NEW: Modal Styles */
+#modal-overlay {
+    display: none; /* Hidden by default */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    z-index: 1000;
+    justify-content: center;
+    align-items: center;
+}
+
+#modal-content {
+    background-color: #fff;
+    padding: 25px;
+    border-radius: 8px;
+    max-width: 90%;
+    width: 650px;
+    max-height: 75vh;
+    overflow-y: auto;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+}
+
+.modal-message-row {
+    display: flex;
+    align-items: center;
+    padding: 8px 0;
+    border-bottom: 1px solid #eee;
+    font-size: 14px;
+}
+.modal-message-row:last-child {
+    border-bottom: none;
+}
+
+.modal-message-time {
+    color: #666;
+    margin-right: 12px;
+    font-family: monospace;
+}
+
+.modal-sender-color {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    margin-right: 8px;
+    flex-shrink: 0;
+}
+
+.modal-message-sender {
+    font-weight: bold;
+    margin-right: 5px;
+}
+
+.modal-message-content {
+    word-break: break-word;
+}
